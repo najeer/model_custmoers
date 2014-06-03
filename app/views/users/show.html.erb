@@ -2,7 +2,6 @@
   <h1>User</h1>
 </div>
 <%= image_tag @user.photo(:small) %>
-
  <table width="100%">
           <tbody>
             <tr valign="top">
@@ -13,7 +12,7 @@
                 <td> <%= @user.username %></td></tr>
                 <tr><th>Email</th><td><%= @user.email %></td></tr>
               </table>
-        </table>
+        </table> 
 <div class="form-actions">
  
   <%= link_to t('.edit', :default => t("helpers.links.edit")),
@@ -25,8 +24,7 @@
 <%= javascript_include_tag  "jquery-1.9.1.js", 'jquery-ui', 'jquery.validate.js', 'jquery.validate.min.js' %>
 <%= javascript_include_tag "facebox.js" %>
 <script>  
- jQuery(document).ready(function() {
-  
+ jQuery(document).ready(function() {  
   $('a[rel*=facebox]').facebox();
  });
 </script>

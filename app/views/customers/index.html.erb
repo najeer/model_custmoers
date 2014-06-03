@@ -17,11 +17,13 @@
         </div>
       </p>  
     <% end %>  
+    <table class="tablesorter" id="user_table" style="width:95%;border:1px solid; align:center;" align="center">
    
-<table class="table table-striped" style="width:95%;border:1px solid; align:center;" align="center">
+<!--
+<table class="table table-striped" style="width:95%;border:1px solid; align:center;" align="center"> -->
 <thead>
-  <div>
-    <tr>
+
+    <tr style="height:50px">
       <th>Name</th>
       <th>Phone No</th>
       <th>Fax</th>
@@ -29,7 +31,7 @@
       <th>Web Site</th>
       <th>Status</th>
     </tr>
- </div>
+ 
   </thead>
   <tbody>
     
@@ -51,3 +53,11 @@
 <div style="float:right; padding-right:28px;">
 <%= paginate @customers %>
  </div>
+ <%= stylesheet_link_tag 'tablesorter.css' %>
+<%= javascript_include_tag  'jquery.tablesorter.min' %>
+<script type="text/javascript">
+
+$(document).ready(function() { 
+    $("#customer_table").tablesorter({   });  
+  } 
+</script>
