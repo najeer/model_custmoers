@@ -1,0 +1,18 @@
+<%= form_for :note,:url=> [parent , Note.new], :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :category, :class => 'control-label' %>
+    <div class="controls">
+<%= f.select :category, options_for_select(Note::CATEGORIES), :include_blank => true %>     </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :Description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :class => 'text_area',:rows=>"4" %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    
+  </div>
+<% end %>

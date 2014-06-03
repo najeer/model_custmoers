@@ -1,0 +1,31 @@
+<%- model_class = Address -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
+<%= link_to "Add Address", new_customer_address_path(@customer) %>
+<% @addresses.each do |address| %>
+<table  style="width:50%;">
+                <tr>
+                <td> <%= address.address_type %></td></tr>
+                <tr>
+                <td><%= address.street1 %></td></tr>
+                <tr>
+                <td> <%= address.street2 %></td></tr>
+                <tr>
+                <td> <%= address.city %></td></tr>
+                <tr><td><%= address.state %></td></tr>
+                <tr><td><%= address.country %></td></tr>
+                <tr><td><%= address.zip %></td></tr>
+                </table>
+                <% end%>
+
+<div class="form-actions">
+  
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_address_path(@address), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              address_path(@address),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>

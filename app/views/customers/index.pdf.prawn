@@ -1,0 +1,1 @@
+work_order_summary_pdf(pdf,current_account,@order)

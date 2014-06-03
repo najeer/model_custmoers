@@ -1,0 +1,13 @@
+<h1 style="color:red " align="center";>Model Customers</h1>
+<div class = "login">
+  <%= form_tag  :action => "create" do %>
+  <table align="center" cellspacing="2" cellpadding="3" border=0 class="login_table">
+     <tr>
+      <td colspan="2" align="center"><h1 class="head">Sign in</h1></td></tr>
+      <tr><th><%= label_tag :email %></th><td><%= text_field_tag :email %></td></tr>
+      <tr><th><%= label_tag :password %></th><td><%= password_field_tag :password %></td></tr>
+      <tr><td colspan="2" align="center" ><%= submit_tag "Log in" %></td></tr>
+      <tr><td colspan="2" align="center"><%= link_to "forgot password", forgot_password_users_path %></td></tr>
+  </table>
+ <% end %>
+</div>

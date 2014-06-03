@@ -1,0 +1,102 @@
+<%= form_for @user, :validate => true, :html => { :class => 'form-horizontal user_form' } do |f| %>
+
+  <div class="control-group">
+    <%= f.label :username, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :username, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <% if current_user.role == "Admin" %>
+    <%= f.label :password, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :class => 'text_field' %>
+      <%end%>
+    </div>
+  </div>
+   <div class="control-group">
+    <% if current_user.role == "Admin" %>
+    <%= f.label :password_confirmation ,:class=>'control-label'%>
+    <div class="controls">
+    <%= f.password_field :password_confirmation, :class => 'text_field' %>
+    <%end %>
+  </div>
+</div>
+ <div class="control-group">
+    <%= f.label :role ,:class=>'control-label'%>
+    <div class="controls">
+    <%= f.select :role, options_for_select(["Admin", "User"]) %>
+   </div>
+</div>
+ <p>
+  <b> Picture </b><br/>
+  <%= f.file_field :photo %>
+ </p>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    users_path, :class => 'btn' %>
+  </div>
+<% end %>
+
+
+<%= stylesheet_link_tag "jquery-ui" %>
+<%= javascript_include_tag  "jquery-1.9.1.js", 'jquery-ui', 'jquery.validate.js', 'jquery.validate.min.js' %>
+<script>
+  
+function  validate_function(){
+  
+$(".user_form").validate({
+  rules: {
+    "user[username]": {
+      required: true,
+      minlength: 4
+    },
+    "user[email]": {
+      required: true,
+      email: true
+    },
+    "user[password]": {
+      required: true,
+      minlength:6
+    },
+    "user[password_confirmation]": {
+      required: true,
+      equalTo: "#user_password"
+    }
+  },
+  messages: {
+   "user[username]" : {
+      required: "Name should not be blank",
+      minlength: jQuery.format("At least {0} characters required!")
+    },
+   "user[email]" : {
+      required: "We need your email address to contact you",
+      email: "Your email address must be in the format of name@domain.com"
+    },
+   "user[password]" : {
+      required: "password should not be blank",
+      minlength: jQuery.format("At least {6} characters required!")
+    },
+   "user[password_confirmation]" : {
+      required: "password should not be blank",
+      equalTo: "password should not match"
+    }
+  }
+});
+
+}
+
+$(document).ready(function() {
+  validate_function();
+  
+$( "#datepicker" ).datepicker();
+
+ });
+</script>

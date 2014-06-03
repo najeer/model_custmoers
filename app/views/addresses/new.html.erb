@@ -1,0 +1,4 @@
+<div class="page-header">
+ <h1> Customer </h1><%= @customer.present? ? @customer.name : "" %>
+    </div>
+<%= render :partial => 'form',:locals => { :parent => @addressable } %>

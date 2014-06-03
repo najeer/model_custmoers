@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  category: MyString
+  description: MyString
+  customer_id: 
+  notable_type: MyString
+  notable_id: 1
+
+two:
+  category: MyString
+  description: MyString
+  customer_id: 
+  notable_type: MyString
+  notable_id: 1

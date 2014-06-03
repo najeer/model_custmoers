@@ -1,0 +1,56 @@
+<div class="page-header">
+  <h1>Users</h1>
+</div>
+<div align ="right" style = "width:85%;">
+  <%= link_to "Add User", new_user_path, :class => 'btn'%>
+</div>
+<%= form_tag users_path, :method => 'get' do %>  
+      <p> 
+        <div style="float:left; padding-left:95px;" >
+
+       <%= text_field_tag :search, params[:search] %>  
+        <%= submit_tag "Search", :name => nil %> 
+        </div>
+      </p>  
+    <% end %>  
+<table class="tablesorter" id="user_table" style="width:85%;border:1px solid; align:center;" align="center">
+  <thead>
+    <tr style="height:120px ">
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    
+    <% if user.role=="User" %>
+    <% if user.status == 1  %>
+      <tr>
+        <td><%= link_to user.username, user_path(user.id) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.role %></td>
+        <td><%= link_to "Deactivate", deactive_user_path(user.id), :class => 'btn' %>
+      </tr>
+      <% end %>
+    <% end %>
+    <% end %>
+  </tbody>
+  
+  <br>
+  
+</div>
+</table>
+<div style="float:right; padding-right:28px;">
+<%= paginate @users %>
+ </div>
+
+<%= stylesheet_link_tag 'tablesorter.css' %>
+<%= javascript_include_tag  'jquery.tablesorter.min' %>
+<script type="text/javascript">
+
+$(document).ready(function() { 
+    $("#user_table").tablesorter({   });  
+  } 
+</script>

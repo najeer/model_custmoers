@@ -1,0 +1,100 @@
+<div class="page-header">
+  <h1>Customer</h1>
+</div>
+<table width="100%" border="1">
+          <tbody>
+            <tr valign="top">
+              <td align="left" width="35%">
+                <table  style="width:100%;">
+                  <tr>
+                  <th>Name</th>
+                  <td> <%= @customer.name %></td></tr>
+                  <tr><th>Phone</th><td><%= @customer.phoneno %></td></tr>
+                  <tr>
+                  <th>Fax</th>
+                  <td> <%= @customer.fax %></td>
+                  </tr>
+                  <th>Legal Name</th>
+                  <td> <%= @customer.legal_name %></td></tr>
+                 <tr><th>Website</th><td><%= @customer.website_url %></td></tr>
+                 <tr><td align="center">
+                <%= link_to "Edit",edit_customer_path(@customer), :class => 'btn' %>
+                <%= link_to "Delete",customer_path(@customer),:method => 'delete',:confirm =>'Are you sure?',:class => 'btn' %>
+              </td></tr>
+                </table>
+              </td>
+
+              <td width="33%" valign="top">
+              <%= link_to "Add Address", new_customer_address_path(@customer) %>
+            <table width = "100%">
+            <% @customer.addresses.in_groups_of(3) do |address_list| %>
+              <tr valign="top">
+                <% address_list.each do |address| %>
+                <td width="30%">
+                  <% if address %>
+                  <table>
+                    <tr>
+                    <td> <%= address.address_type %></td></tr>
+                    <tr>
+                    <td><%= address.street1 %>, <%= address.street2 %></td></tr>
+                    <tr>
+                    <td> <%= address.city %>, <%= address.state %></td></tr>
+                    <tr><td><%= address.country %>, <%= address.zip %></td></tr>
+                     <tr><td>
+                      <%= link_to "Edit",edit_customer_address_path(@customer,address) %>&nbsp;
+                      <%= link_to "Delete", customer_address_path(@customer,address),:method => 'delete', :confirm =>  'Are you sure?' %>
+                    </td></tr>
+                  </table>
+                  <% end %>
+            </td>
+            <% end %>
+          </tr>
+          <% end %>
+        </table>
+      </td>
+
+        <td width="33%" valign="top">
+              <%= link_to "Add Contacts", new_customer_contact_path(@customer) %>
+            <table width = "100%">
+            <% @customer.contacts.in_groups_of(3) do |contact_list| %>
+              <tr valign="top">
+                <% contact_list.each do |contact| %>
+                <td width="30%">
+                  <% if contact %>
+                  <table>
+                    <tr>
+                    <td><%= link_to contact.name, customer_contact_path(@customer,contact)%></td></tr>
+                    <tr>
+                    <td> <%= contact.email %></td></tr>
+                    </table>
+                  <% end %>
+            </td>
+            <% end %>
+          </tr>
+          <% end %>
+        </table>
+      </td>
+
+
+    
+   
+
+    <table width = "100%"><tr valign="top"><h3>Notes</h3>
+      <%= link_to "Add Notes", new_customer_note_path(@customer) %>
+            <td>
+              <% @customer.notes.each do |note| %>
+              <table>
+                <tr>
+                <td> <%= note.category %> </td></tr>
+                <tr>
+                <td><%= note.description %></td></tr>
+                </table>
+                 <%= link_to "Edit",edit_customer_note_path(@customer,note) %>&nbsp;
+                <%= link_to "Delete", customer_note_path(@customer,note),:method => 'delete', :confirm =>  'Are you sure?' %>
+                <% end %>
+                <tr><td>
+               
+                </td></tr>
+
+            </td></tr>
+    </table>

@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <body style="background-color:#f0f0f0;">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "rails.validations" %>
+  <%= csrf_meta_tags %>
+  <%= render 'layouts/flash_messages' %>
+  <% flash.each do |name, message| %>
+   <div style="font-size:20px;font-family:verdana;color:red;" >
+   <%= content_tag :div, message, :id => "flash_#{name}" ,:align => "center"%>
+   </div>
+  <% end %>
+  </body>  
+</head>
+<div>
+  <% if @current_user %>
+   <h1 style="float:left;" align="top">Model Customers</h1>
+      <div style = "float:right;font-size:14px;">
+       <%= image_tag @current_user.photo(:mini) %>
+  Hi <%= current_user.username %> |
+         <%= link_to "Profile " , user_path(current_user) %>|<%= link_to "change password " ,edit_password_users_path  %>|<%= link_to " logout",logout_path %>
+      </div> <br>
+      <br>
+      <br>
+      <br> 
+<div class="container">  
+<div class="row">  
+
+<ul class="nav nav-pills ">  
+<li class="<%= 'active' if current_page?(new_customer_path) %>"><%= link_to "New Customer", new_customer_path, :class => 'btn' %></li>&nbsp;
+<li class="<%= 'active' if current_page?(customers_path) %>"><%= link_to "Customers List", customers_path, :class => 'btn' %></li>&nbsp;
+   <li class="<%= 'active' if current_page?(inactive_customers_path) %>"><%= link_to "Deactivated Customers",inactive_customers_path,  :class => 'btn' %></li>&nbsp;
+    <% if current_user.role == "Admin" %>
+     <li class="<%= 'active' if current_page?(users_path) %>"><%= link_to "Users List", users_path,:class => 'btn' %></li>&nbsp;
+      <li class="<%= 'active' if current_page?(inactive_users_path) %>"><%= link_to "Deactivated Users", inactive_users_path,  :class => 'btn' %></li>
+    <% end %>
+   </ul>  
+</div>
+</div> 
+    
+    </div>
+    
+    <br/>
+
+<% end %>
+<%= yield %>
+
+</body>
+</html>

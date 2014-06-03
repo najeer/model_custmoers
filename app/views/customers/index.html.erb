@@ -1,0 +1,53 @@
+<div class="page-header">
+  <h4>Customers</h4>
+</div>
+<div style="float:right; padding-right:35px;" >
+  <%= link_to "CSV", customers_path(format: "csv"), :class => 'btn' %> 
+</div>
+<div style="float:right; padding-right:35px;" >
+<%= link_to 'PDF Format', customers_path(format: "pdf"), :class =>'btn' %>
+  </div>
+    <%= form_tag customers_path, :method => 'get' do %>  
+      <p> 
+        <div style="float:left; padding-left:35px;" >
+
+       Name: <%= text_field_tag :search1, params[:search1] %>  
+       Phone number: <%= text_field_tag :search2, params[:search2] %>
+        <%= submit_tag "Search", :name => nil %> 
+        </div>
+      </p>  
+    <% end %>  
+   
+<table class="table table-striped" style="width:95%;border:1px solid; align:center;" align="center">
+<thead>
+  <div>
+    <tr>
+      <th>Name</th>
+      <th>Phone No</th>
+      <th>Fax</th>
+      <th>Legal Name</th>
+      <th>Web Site</th>
+      <th>Status</th>
+    </tr>
+ </div>
+  </thead>
+  <tbody>
+    
+   <% @customers.each do |customer| %>
+   <% if customer.status == 1  %>
+      <tr>
+        <td><b><%= link_to customer.name, customer_path(customer.id) %></b></td>
+        <td><b><%= customer.phoneno %></b></td>
+        <td><b><%= customer.fax %></b></td>
+        <td><b><%= customer.legal_name %></b></td>
+        <td><b><%= customer.website_url %></b></td>
+        <td><%= link_to "Deactivate", deactive_customer_path(customer), :class => 'btn' %>
+        </tr>
+      <% end %>
+    <% end %>
+    
+  </tbody>
+</table>
+<div style="float:right; padding-right:28px;">
+<%= paginate @customers %>
+ </div>
