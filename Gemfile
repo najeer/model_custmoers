@@ -27,8 +27,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'twitter-bootstrap-rails'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'thin'
+  gem 'uglifier', '>= 1.0.3'  
 end
 
 gem 'jquery-rails'
@@ -36,11 +35,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'thin'
 end
 gem 'disable_assets_logger', :group => :development
-group :development, :test do
-  gem 'mysql2'
-end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
