@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem 'bootstrap-sass', '2.1'
-gem 'coffee-rails', '~> 3.2.1'
+#gem 'coffee-rails', '~> 3.2.1'
 gem 'execjs'
 gem 'less'
 gem 'facebox-rails', '~> 0.2.0'
@@ -18,7 +18,7 @@ gem "prawn"
 gem 'client_side_validations'
 
 
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'nifty-generators'
 gem "mail"
 
@@ -38,6 +38,9 @@ group :production do
   gem 'rails_12factor'
 end
 gem 'disable_assets_logger', :group => :development
+group :development, :test do
+  gem 'mysql2'
+end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
