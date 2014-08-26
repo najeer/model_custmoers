@@ -3,7 +3,7 @@ class CreateCustomers < ActiveRecord::Migration
     create_table :customers do |t|
       t.string :name
       t.string :phoneno
-      t.interger :fax
+      t.integer :fax
       t.string :legal_name
       t.string :website_url
 
