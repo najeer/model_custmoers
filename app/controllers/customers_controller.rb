@@ -1,20 +1,16 @@
 class CustomersController < ApplicationController
  require 'customer_drawer'
  before_filter :require_login
- before_filter :find_customer ,:except=>[:index,:new,:create,:inactive]
+ before_filter :find_customer ,:except=>[:index,:new,:create,:inactive,:import]
  
   def index
   @customers = Customer.where(:status => 1)
-   @customers = @customers.search(params[:search1], params[:search2]).order("name").page(params[:page]).per(2)
+   @customers = @customers.search(params[:search1], params[:search2]).order("name").page(params[:page]).per(5)
 
    respond_to do |format|
       format.html
-      format.csv { 
-        render text: @customers.to_csv
-         }
-
-         format.pdf do
-          
+      format.csv { render text: @customers.to_csv }
+      format.pdf do
           #pdf.text customer.phoneno
           #pdf.text customer.fax
           #pdf.text customer.legal_name
@@ -24,6 +20,11 @@ class CustomersController < ApplicationController
     end
       
     end  
+  end
+
+  def import
+    Customer.import(params[:file])
+        redirect_to customers_path, notice: "customers imported"
   end
 
   def show
@@ -74,7 +75,7 @@ class CustomersController < ApplicationController
 
 def inactive
    @customers = Customer.where(:status => 0)
-   @customers = @customers.order("name").page(params[:page]).per(2)
+   @customers = @customers.order("name").page(params[:page]).per(5)
 end
 
 private

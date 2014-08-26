@@ -1,13 +1,13 @@
 /* tables */
 table.tablesorter {
-	background-color: #FFF;
+	background-color: #dcb;
 	margin:10px 0pt 15px;
 	font-size: 10pt;
 	width: 100%;
 	text-align: left;
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
-	background-color: #eee;
+	background-color: #ada;
 	border: 1px solid #FFF;
 	font-size: 10pt;
 	padding: 4px;

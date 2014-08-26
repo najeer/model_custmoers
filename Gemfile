@@ -5,7 +5,7 @@ gem 'bootstrap-sass', '2.1'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'execjs'
 gem 'less'
-
+gem 'facebox-rails', '~> 0.2.0'
 gem 'mysql2'
 gem 'therubyracer', :platform => :ruby
 gem "less-rails"

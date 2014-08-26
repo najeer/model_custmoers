@@ -60,11 +60,11 @@ class UsersController < ApplicationController
       flash[:notice] = 'Your password and password confirmation must match'
     end
       
-end
+   end
 
 
       
-  end
+end
     
   def forgot_password
      if request.get?      
