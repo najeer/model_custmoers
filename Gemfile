@@ -17,7 +17,7 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'client_side_validations'
 
 
-gem 'sqlite3'
+#gem 'sqlite3'
 gem 'nifty-generators'
 gem "mail"
 
@@ -26,8 +26,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'twitter-bootstrap-rails'
-  gem 'uglifier', '>= 1.0.3'
-  gem 'thin'
+  gem 'uglifier', '>= 1.0.3'  
 end
 
 gem 'jquery-rails'
@@ -35,8 +34,10 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 group :production do
   gem 'pg'
   gem 'rails_12factor'
+  gem 'thin'
 end
 gem 'disable_assets_logger', :group => :development
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
