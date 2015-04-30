@@ -1,8 +1,8 @@
-class CustomerPdf< Prawn::Document
+# class CustomerPdf< Prawn::Document
 
-	def intialize(customers)
-		super()
-		@customers = customers
-		text "hai"
-	end
-end
+# 	def intialize(customers)
+# 		super()
+# 		@customers = customers
+# 		text "hai"
+# 	end
+# end
