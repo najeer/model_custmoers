@@ -3,7 +3,7 @@ require File.expand_path('../boot', __FILE__)
 require 'rails/all'
 require 'csv'
 #require 'iconv'
-require 'pdf/writer'
+#require 'pdf/writer'
 
 
 if defined?(Bundler)
