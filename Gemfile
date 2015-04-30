@@ -11,7 +11,7 @@ gem "less-rails"
 gem "bootstrap_flash_messages"
 gem "kaminari"  
 gem "roo"
-gem 'pdf-writer', :git => 'git://github.com/metaskills/pdf-writer.git'
+gem 'pdf-writer'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 #gem "prawn"
 gem 'client_side_validations'

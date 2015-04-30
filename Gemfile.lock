@@ -1,4 +1,3 @@
-
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: 55ce56026fe38ab88e59eb5709c6350e18dd33cd
@@ -183,7 +182,7 @@ DEPENDENCIES
   mysql2
   nifty-generators
   paperclip!
-  pdf-writer!
+  pdf-writer
   pg
   rails (= 3.2.9)
   rails_12factor
@@ -193,4 +192,3 @@ DEPENDENCIES
   thin
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
-
