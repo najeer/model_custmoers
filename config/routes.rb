@@ -1,6 +1,7 @@
 ModelCustmoers::Application.routes.draw do
   resources :customers do
     collection do
+       post :import 
        get :inactive
        post :inactive       
      end
@@ -12,7 +13,6 @@ ModelCustmoers::Application.routes.draw do
     resources :notes
     resources :contacts
   end
-  
   resources :users do
     collection do
       get :forgot_password  

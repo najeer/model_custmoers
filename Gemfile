@@ -2,10 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem 'bootstrap-sass', '2.1'
-gem 'coffee-rails', '~> 3.2.1'
 gem 'execjs'
 gem 'less'
-
+gem 'facebox-rails', '~> 0.2.0'
 gem 'mysql2'
 gem 'therubyracer', :platform => :ruby
 gem "less-rails"
@@ -14,7 +13,7 @@ gem "kaminari"
 gem "roo"
 gem 'pdf-writer', :git => 'git://github.com/metaskills/pdf-writer.git'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem "prawn"
+#gem "prawn"
 gem 'client_side_validations'
 
 

@@ -1,8 +1,12 @@
 <div class="page-header">
   <h4>Customers</h4>
-</div>
+<h5>Import customers</h5>
+<%= form_tag import_customers_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>
 <div style="float:right; padding-right:35px;" >
-  <%= link_to "CSV", customers_path(format: "csv"), :class => 'btn' %> 
+  <%= link_to "Export CSV", customers_path(format: "csv"), :class => 'btn' %> 
 </div>
 <div style="float:right; padding-right:35px;" >
 <%= link_to 'PDF Format', customers_path(format: "pdf"), :class =>'btn' %>
@@ -17,7 +21,7 @@
         </div>
       </p>  
     <% end %>  
-    <table class="tablesorter" id="user_table" style="width:95%;border:1px solid; align:center;" align="center">
+    <table class="tablesorter" id="customer_table" style="width:95%;border:1px solid; align:center;" align="center">
    
 <!--
 <table class="table table-striped" style="width:95%;border:1px solid; align:center;" align="center"> -->
@@ -52,6 +56,7 @@
 </table>
 <div style="float:right; padding-right:28px;">
 <%= paginate @customers %>
+ </div>
  </div>
  <%= stylesheet_link_tag 'tablesorter.css' %>
 <%= javascript_include_tag  'jquery.tablesorter.min' %>

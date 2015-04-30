@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   layout "application"
-  before_filter :require_login, :except => [:forgot_password]
+  #before_filter :require_login, :except => [:forgot_password]
   before_filter :find_user, :except => [:index, :new, :create, :inactive, :forgot_password, :edit_password]
 
   def index
@@ -60,11 +60,11 @@ class UsersController < ApplicationController
       flash[:notice] = 'Your password and password confirmation must match'
     end
       
-end
+   end
 
 
       
-  end
+end
     
   def forgot_password
      if request.get?      

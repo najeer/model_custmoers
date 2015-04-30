@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(:version => 20140520121817) do
   create_table "addresses", :force => true do |t|
     t.string   "name"
     t.string   "location"
-    t.integer  "customer_id"
+    t.integer  "custmer_id"
     t.string   "country"
     t.integer  "zip"
     t.string   "address_type"

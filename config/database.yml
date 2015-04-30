@@ -15,7 +15,7 @@ development:
   database: model_custmoers_development
   pool: 5
   username: root
-  password: mtfbwy!
+  password: chetu123
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +28,7 @@ test:
   database: model_custmoers_test
   pool: 5
   username: root
-  password: mtfbwy!
+  password: chetu123
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -38,5 +38,5 @@ production:
   database: model_custmoers_production
   pool: 5
   username: root
-  password: mtfbwy!
+  password: chetu123
   socket: /var/run/mysqld/mysqld.sock
