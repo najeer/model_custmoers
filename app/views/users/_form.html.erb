@@ -13,19 +13,19 @@
     </div>
   </div>
   <div class="control-group">
-    <% if current_user.role == "Admin" %>
+    
     <%= f.label :password, :class => 'control-label' %>
     <div class="controls">
       <%= f.password_field :password, :class => 'text_field' %>
-      <%end%>
+      
     </div>
   </div>
    <div class="control-group">
-    <% if current_user.role == "Admin" %>
+    
     <%= f.label :password_confirmation ,:class=>'control-label'%>
     <div class="controls">
     <%= f.password_field :password_confirmation, :class => 'text_field' %>
-    <%end %>
+    
   </div>
 </div>
  <div class="control-group">
